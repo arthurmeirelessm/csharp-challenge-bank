@@ -26,7 +26,7 @@ namespace csharp_challenge_bank.User
 
         public void Deposito(double quantia)
         {
-           quantia += Saldo;
+           Saldo += quantia;
         }
 
         public void Saque(double quantia)

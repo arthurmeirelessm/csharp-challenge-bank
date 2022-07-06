@@ -32,6 +32,16 @@ namespace csharp_challenge_bank
             Console.WriteLine("Dados da conta: ");
             Console.WriteLine(conta);
 
+
+
+            Console.WriteLine("Entre com um valor para deposito: ");
+            double quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            conta.Deposito(quantia);
+
+            Console.WriteLine();
+            Console.WriteLine("Dados da conta: ");
+            Console.WriteLine(conta);
+
         }
     }
 }
