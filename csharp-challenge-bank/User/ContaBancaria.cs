@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace csharp_challenge_bank.User
 {
@@ -10,23 +11,17 @@ namespace csharp_challenge_bank.User
     {
         public int Numero { get; set; }
         public string Titular { get; set; }
-        public double Saldo { get; set; } = 0;
+        public double Saldo { get; set; }
 
-        public ContaBancaria(int numero, string titular, double saldo)
+        public ContaBancaria(int numero, string titular)
         {
             Numero = numero;
             Titular = titular;
-            Saldo = saldo;
         }
 
-        public ContaBancaria(double saldo)
+        public ContaBancaria(int numero, string titular, double saldo) : this(numero, titular)
         {
             Saldo = saldo;
-        }
-
-        public ContaBancaria()
-        {
-
         }
 
         public void Deposito(double quantia)
@@ -37,6 +32,11 @@ namespace csharp_challenge_bank.User
         public void Saque(double quantia)
         {  
             quantia -= Saldo;
+        }
+
+        public override string ToString()
+        {
+            return "Conta: " + Numero + ", Titular: " + Titular + ", Saldo: $" + Saldo.ToString("F2", CultureInfo.InvariantCulture);
         }
     }
 }
